@@ -1,9 +1,9 @@
 #!/bin/bash
 
-Person1=$1
-Person2=$2
+echo "Please enter your username::"
+read -s USERNAME
+echo "Username entered is $USERNAME"
 
-echo "$Person1: Hi $Person2, How are you ?"
-echo "$Person2: Hello $Person1, im fine. What are you doing?"
-echo "$Person1: im learning devops course"
-echo "$Person2: that is great to hear."
+echo "Please enter the password::"
+read -s PASSWORD
+echo "Password entered is $PASSWORD"

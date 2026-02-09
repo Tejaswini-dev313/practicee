@@ -4,6 +4,6 @@ USER=$(id)
 
 echo "User id is $USER"
 
-DATE=$(date %Y%M%D)
+DATE=$(date +%y/%m/%d)
 
 echo "Date is $DATE"

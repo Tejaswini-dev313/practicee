@@ -1,10 +1,9 @@
 #!/bin/bash
 
-NUMBER1=$1
+USERID=$(id -u)
 
-if [ $NUMBER1 -gt 20 ]
+if [ $USERID -ne 0 ]
 then
-    echo "Given number is greater than 20"
-else
-    echo "Given number is less than 20"
+    echo "Run the scrip with root priveleges"
+    exit 1
 fi 

@@ -12,7 +12,7 @@ then
     exit 1
 fi 
 
-dnf instal nginx -y
+dnf install nginxx -y
 
 if [$? -ne 0 ]
 then

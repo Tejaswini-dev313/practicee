@@ -1,9 +1,9 @@
 #!/bin/bash
 
-echo "Please enter the user name::"
-read -s USERNAME
-echo "Entered username is $USERNAME"
+FRUIT=("APPLE", "KIWI", "ORANGE")
 
-echo "Please enter the password::"
-read PASSWORD
-echo "Entered password is $PASSWORD"
+echo "Entered first fruit is $FRUIT[0]"
+echo "Entered second fruit is $FRUIT[1]"
+echo "Entered third fruit is $FRUIT[2]"
+
+echo "Total number of fruits are $FRUIT[@]"

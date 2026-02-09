@@ -1,9 +1,8 @@
 #!/bin/bash
 
-USER=$(id)
+NUMBER1=$1
+NUMBER2=$2
 
-echo "User id is $USER"
+SUM=$(($NUMBER1+$NUMBER2))
 
-DATE=$(date +%y/%m/%d)
-
-echo "Date is $DATE"
+echo "Total number of $NUMBER1 and $NUMBER2 is equal to $SUM"

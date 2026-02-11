@@ -7,16 +7,40 @@ N="\e[0m"
 
 if [ $USERID -ne 0 ]
 then
-    echo "Run the scrip with root priveleges"
+    echo "Run the script with root preveleges"
     exit 1
-fi 
+fi
 
-dnf install nginxx -y
+VALIDATE() {
+    if [ $1 -ne 0 ]
+    then
+        echo "$2 is.. Failed"
+        exit 1
+    else
+        echo "$2 is.. Success"
+    fi
+}
+
+dnf list installed git 
+
+if [ $? -ne 0 ]
+then 
+    echo "nginx is not installed...installing the nginx"
+    dnf install nginx -y
+    VALIDATE $? "installing nginx"
+else
+    echo "nginx already installed"
+fi
+
+dnf list installed mysql
 
 if [ $? -ne 0 ]
 then
-    echo -e "nginx installtion is $R failed $N"
-    exit 1
+    echo "mysql is not installed and installing."
+    dnf install mysql -y
+    VALIDATE $? "installing mysql"
 else
-    echo -e " $G successfully installed the nginx $N"
+    echo "mysql already installed and nothing to do"
 fi
+
+

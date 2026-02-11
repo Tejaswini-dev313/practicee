@@ -14,14 +14,14 @@ fi
 VALIDATE() {
     if [ $1 -ne 0 ]
     then
-        echo "$2 is.. Failed"
+        echo -e "$2 is.. $R Failed $N"
         exit 1
     else
-        echo "$2 is.. Success"
+        echo -e "$2 is.. $G Success $N"
     fi
 }
 
-dnf list installed git 
+dnf list installed nginx 
 
 if [ $? -ne 0 ]
 then 

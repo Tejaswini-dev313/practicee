@@ -1,5 +1,5 @@
 #!/bin/bash
 for i in {1..20}
 do 
-    $i
+   echo $i
 done

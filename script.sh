@@ -18,7 +18,7 @@ then
     exit 1
 fi
 
-VALIDATE() {
+VALIDATE(){
     if [ $1 -ne 0 ]
     then
         echo -e "$2 is $R failed $N" | tee -a $LOG_FILE
@@ -28,17 +28,17 @@ VALIDATE() {
     fi
 }
 
-USAGE() {
+# USAGE(){
 
-    echo -e "$R USAGE:: $N sudo sh script.sh Package1 Package2..."
-    exit 1
-}
+#     echo -e "$R USAGE:: $N sudo sh script.sh Package1 Package2..."
+#     exit 1
+# }
 
 echo "Script started executing at: $(date)" | tee -a $LOG_FILE
 
 for Package in $@
 do 
-    dnf list installed $Package | tee -a $LOG_FILE
+    dnf list installed $Package
     if [ $? -ne 0 ]
     then 
         echo "Package is not installed. installing the $Package" | tee -a $LOG_FILE

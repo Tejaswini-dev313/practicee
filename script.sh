@@ -41,8 +41,8 @@ do
     dnf list installed $Package | tee -a $LOG_FILE
     if [ $? -ne 0 ]
     then 
-        echo "Package is not installed. installing the $Package"
-        dnf install $Package -y         | tee -a $LOG_FILE
+        echo "Package is not installed. installing the $Package" | tee -a $LOG_FILE
+        dnf install $Package -y
         VALIDATE $? "Installing $Package"
     else
         echo "$Package is already installed. nothing to do.."   | tee -a $LOG_FILE

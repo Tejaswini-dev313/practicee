@@ -4,8 +4,10 @@ LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOGS_DATE=$(date)
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$LOGS_DATE.log"
+mkdir -p $LOGS_FOLDER
 
 USERID=$(id -u)
+
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"

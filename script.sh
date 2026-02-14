@@ -1,22 +1,32 @@
 #!/bin/bash
 
-set -e
+DISK_USAGE=$(df -hT | grep xfs)
+DISK_THRESHOLD=5
 
-failure(){
-    echo "Failed at : $1:$2"
-}
-
-trap 'failure "${LINENO}" "$BASH_COMMAND"' ERR
-
-echo "Hello world success"
-echooo "Hello world success"
-echo "Hello world after failure"
-
-
+while IFS= read -r line
+do 
+    USAGE=$(echo $line | grep xfs | awk -F "" '{print $6F}' | cut -d "%" -f1)
+    PARTITION=$(echo $line | grep xfs | awk -F "" '{print $NF}')
+    if [ $USAGE -ge $DISK_THRESHOLD ]
+    then
+        echo "$PARTITION is more than $DISK_THRESHOLD, current value: $USAGE, please check"
+    fi
+done <<< $DISK_USAGE
 
 
-# trap 'failure "${LINENO}" "$BASH_COMMAND"' ERR #ERR is the error signal
 
-# echo "Hello world success"
-# echooo "Hello world success"
-# echo "Hello world after failure"
+
+
+
+# DISK_USAGE=$(df -hT | grep xfs)
+# DISK_THRESHOLD=5 
+
+# while IFS= read -r line
+# do
+#     USAGE=$(echo $line | grep xfs | awk -F " " '{print $6F}' | cut -d "%" -f1)
+#     PARTITION=$(echo $line | grep xfs | awk -F " " '{print $NF}')
+#     if [ $USAGE -ge $DISK_THRESHOLD ]
+#     then
+#         echo "$PARTITION is more than $DISK_THRESHOLD, current value: $USAGE, please check"
+#     fi
+# done <<< $DISK_USAGE

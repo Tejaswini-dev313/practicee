@@ -1,9 +1,9 @@
 #!/bin/bash
 
-Person1=$1
-Person2=$2
+ARRAY=("Apple", "kiwi", "orange")
 
-echo "$Person1: Hii $Person2, How are you ?"
-echo "$Person2: Hello $Person1. im good how are you ?"
-echo "$Person1: im also fine. where are you going ?"
-echo "$Person2: im going to office"
+echo "First fruit is ${ARRAY[0]}"
+echo "second fruit is ${ARRAY[1]}"
+echo "third fruit is ${ARRAY[2]}"
+
+echo "Total fruit is ${ARRAY[@]}"

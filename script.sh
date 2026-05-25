@@ -1,8 +1,8 @@
 #!/bin/bash
 
-Number1=$1
-Number2=$2
+Person1=$1
+Person2=$2
 
-SUM=$(($Number1+$Number2))
+SUM=$(($Person1+$Person2))
 
-echo "Total sum of the $Number1 and $Number2 is equal to $SUM"
+echo "total number of $Person1 and $Person2 is equal to $SUM"

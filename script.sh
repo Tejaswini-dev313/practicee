@@ -1,8 +1,10 @@
 #!/bin/bash
 
 Person1=$1
-Person2=$2
 
-SUM=$(($Person1+$Person2))
-
-echo "total number of $Person1 and $Person2 is equal to $SUM"
+if [ $Person1 -gt 20 ]
+then
+    echo "Given number is greater than 20"
+else
+    echo "Given number is less than 20"
+fi

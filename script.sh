@@ -1,10 +1,15 @@
 #!/bin/bash
 
-Person1=$1
+dnf list install mysql
 
-if [ $Person1 -gt 20 ]
+if [ $? -ne 0 ]
 then
-    echo "Given number is greater than 20"
-else
-    echo "Given number is less than 20"
+    echo "mysql is not installed. please check.."
+    dnf install mysql -y
+    if [ $? -ne 0 ]
+    then
+        echo "mysql has been installed successfully"
+    else
+        echo "mysql not installed. please check"
+    fi
 fi

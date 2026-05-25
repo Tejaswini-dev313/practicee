@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dnf list install mysql
+dnf list installed mysql
 
 if [ $? -ne 0 ]
 then

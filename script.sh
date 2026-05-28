@@ -24,7 +24,7 @@ CHECK_ROOT
 
 dnf list installed mysql
 
-if [ $1 -ne 0 ]
+if [ $? -ne 0 ]
 then
     echo "mysql is not installed...please check"
     exit 1
@@ -33,7 +33,7 @@ fi
 
 dnf list installed nginx
 
-if [ $1 -ne 0 ]
+if [ $? -ne 0 ]
 then
     echo "nginx is not installed...please check"
     exit 1

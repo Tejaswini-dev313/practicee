@@ -2,6 +2,10 @@
 
 USERID=$(id -u)
 
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
+
 CHECK_ROOT(){
     
     if [ $USERID -ne 0 ]
@@ -14,9 +18,9 @@ CHECK_ROOT(){
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
-        echo "$2 is failed"
+        echo -e "$2 is $R failed $N"
     else
-        echo "$2 is...success"
+        echo -e "$2 is $G success $N"
     fi
 }
 
@@ -28,7 +32,7 @@ if [ $? -ne 0 ]
 then
     echo "mysql is not installed and going to install it"
     dnf install mysql -y
-    VALIDATE $? "installing git"
+    VALIDATE $? "installing mysql"
 else
     echo "mysql is already installed."
 fi

@@ -2,4 +2,4 @@
 
 time=$(date)
 
-echo "waht is today date $time"
+echo "today date is $time"

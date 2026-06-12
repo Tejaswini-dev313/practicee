@@ -1,9 +1,11 @@
 #!/bin/bash
 
-Fruit=("apple", "kiwi", "orange")
+Number=$1
 
-echo "first fruit is: ${Fruit[0]}"
-echo "second fruit is: ${Fruit[1]}"
-echo "third fruit is: ${Fruit[2]}"
+if [$Number -gt 20]
+then
+    echo "Given number $Number is greater than 20"
+else 
+    echo "given number $Number is less than 20"
+fi
 
-echo "Total fruits are ${Fruit[@]}"

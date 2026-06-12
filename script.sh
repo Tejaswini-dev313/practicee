@@ -8,9 +8,9 @@ failure(){
 
 trap 'failure "${LINENO}" "${BASH_COMMAND}"' ERR
 
-touch data
-mkdir folder
+ls -l
 touchh data1
+ls -la
 
 # echo "hello world success"
 # echooo "hello world failure"

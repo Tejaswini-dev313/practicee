@@ -16,7 +16,7 @@ N="\e[0m"
 CHECK_ROOT(){
     if [ $userid -ne 0 ]
     then 
-        echo "run the script with root priveleges" &>> $LOGS 
+        echo "run the script with root priveleges" | tee -a $LOGS 
         exit 1
     fi
 }
@@ -26,9 +26,9 @@ CHECK_ROOT
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
-        echo -e "$2 is $R failed $N" &>> $LOGS
+        echo -e "$2 is $R failed $N" | tee -a $LOGS
     else
-        echo -e "$2 is $G success $N" &>> $LOGS
+        echo -e "$2 is $G success $N" | tee -a $LOGS
     fi
 }
 
@@ -45,15 +45,15 @@ fi
 for Package in $@
 do
 
-dnf list installed $Package &>> $LOGS
+dnf list installed $Package | tee -a $LOGS
 
 if [ $? -ne 0 ]
 then
     echo "$Package is not installed and going to install it" &>> $LOGS
-    dnf install $Package -y  &>> $LOGS
-    VALIDATE $? "$Package is installing" &>> $LOGS
+    dnf install $Package -y  | tee -a $LOGS
+    VALIDATE $? "$Package is installing" | tee -a $LOGS
 else
-    echo "$Package is already installed" &>> $LOGS
+    echo "$Package is already installed" | tee -a $LOGS
 fi
 
 done

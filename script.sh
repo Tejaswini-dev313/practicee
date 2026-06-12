@@ -8,9 +8,13 @@ failure(){
 
 trap 'failure "${LINENO}" "$BASH_COMMAND"' ERR
 
-echo "hello world success"
-echooo "hello world failure"
-echo "hello world after failure"
+ls -la
+lsss
+ls -l
+
+# echo "hello world success"
+# echooo "hello world failure"
+# echo "hello world after failure"
 
 # LOG_FOLDER="/var/log/shell-logs"
 # SCRIPT_NAME=$(echo $0 | cut -d "." -f1)

@@ -2,8 +2,8 @@
 
 userid=$(id -u)
 
-R="\[30m"
-G="\[31m"
+R="\[31m"
+G="\[32m"
 N="\[0m"
 
 if [ $userid -ne 0 ]

@@ -26,7 +26,7 @@ VALIDATE(){
     fi
 }
 
-for Package in @
+for Package in $@
 do
 
 dnf list installed $Package

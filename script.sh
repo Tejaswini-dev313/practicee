@@ -6,11 +6,11 @@ failure(){
     echo "failed at $1:$2"
 }
 
-trap 'failure "${LINENO}" "$BASH_COMMAND"' ERR
+trap 'failure "${LINENO}" "${BASH_COMMAND}"' ERR
 
-ls -la
-lsss
-ls -l
+touch data
+mkdir folder
+touchh data1
 
 # echo "hello world success"
 # echooo "hello world failure"

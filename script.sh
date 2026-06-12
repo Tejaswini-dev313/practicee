@@ -1,11 +1,22 @@
 #!/bin/bash
 
-Number=$1
+userid=$(id -u)
 
-if [ $Number -gt 20 ]
-then
-    echo "Given number $Number is greater than 20"
-else 
-    echo "given number $Number is less than 20"
+if [$userid -ne 0]
+then 
+ echo "run the script with root priveleges"
+ exit 1
 fi
+
+dnf list installed mysql
+
+if [ $? -ne 0 ]
+then 
+    echo "mysql is not installed..going to install it"
+    dnf install mysql -y
+else
+    echo "mysql is alredy installed"
+fi 
+
+
 

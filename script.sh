@@ -2,7 +2,7 @@
 
 userid=$(id -u)
 
-R="\e[31m"
+R="\e[30m"
 G="\e[32m"
 N="\e[0m"
 

@@ -36,6 +36,17 @@ then
 else
     echo -e "$B mysql is already installed $N"
 fi
+
+dnf list installed git
+
+if [ $? -ne 0 ]
+then 
+    echo "git is not installed and going to install it"
+    dnf install git -y
+    VALIDATE $? "insttalling git"
+else
+    echo "git already installed"
+fi
  
 
 

@@ -32,6 +32,15 @@ VALIDATE(){
     fi
 }
 
+USAGE(){
+    echo "USAGE:: sudo sh script.sh package1 package2..."
+}
+
+if [ $# -eq 0 ]
+then
+    USAGE
+fi
+
 for Package in $@
 do
 

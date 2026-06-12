@@ -33,7 +33,8 @@ VALIDATE(){
 }
 
 USAGE(){
-    echo "USAGE:: sudo sh script.sh package1 package2..."
+    echo "USAGE:: sudo sh script.sh package1 package2 ..."
+    exit 1
 }
 
 if [ $# -eq 0 ]

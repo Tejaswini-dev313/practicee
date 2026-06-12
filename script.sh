@@ -2,9 +2,9 @@
 
 userid=$(id -u)
 
-R="\[31m"
-G="\[32m"
-N="\[0m"
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
 
 if [ $userid -ne 0 ]
 then 

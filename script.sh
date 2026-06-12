@@ -14,7 +14,7 @@ CHECK_ROOT(){
     fi
 }
 
-
+CHECK_ROOT
 
 
 

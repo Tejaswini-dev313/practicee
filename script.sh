@@ -4,6 +4,7 @@ userid=$(id -u)
 
 R="\e[31m"
 G="\e[32m"
+B="\e[34m"
 N="\e[0m"
 
 CHECK_ROOT(){
@@ -33,7 +34,7 @@ then
     dnf install mysql -y
     VALIDATE $? "installing mysql"
 else
-    echo "mysql is already installed"
+    echo -e "$B mysql is already installed $N"
 fi
  
 

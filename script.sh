@@ -2,7 +2,7 @@
 
 userid=$(id -u)
 
-if [$userid -ne 0]
+if [ $userid -ne 0 ]
 then 
  echo "run the script with root priveleges"
  exit 1

@@ -2,6 +2,10 @@
 
 userid=$(id -u)
 
+R="\[30m"
+G="\[31m"
+N="\[0m"
+
 if [ $userid -ne 0 ]
 then 
  echo "run the script with root priveleges"
@@ -15,7 +19,7 @@ then
     echo "mysql is not installed..going to install it"
     dnf install mysql -y
 else
-    echo "mysql is alredy installed"
+    echo -e "$R mysql is alredy installed $N"
 fi 
 
 

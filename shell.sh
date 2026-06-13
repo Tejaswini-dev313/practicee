@@ -6,7 +6,7 @@ failure(){
     echo "failed at $1:$2"
 }
 
-trap 'FAILURE "${LINENO}" "${BASH_COMMAND}"' ERR
+trap 'failure "${LINENO}" "${BASH_COMMAND}"' ERR
 
 ls
 

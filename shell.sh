@@ -9,7 +9,5 @@ failure(){
 trap 'failure "${LINENO}" "${BASH_COMMAND}"' ERR
 
 ls
-
 lsss
-
 ls -la

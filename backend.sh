@@ -36,12 +36,12 @@ VALIDATE $? "Enabled nodejs"
 dnf install nodejs -y | tee -a $LOGS
 VALIDATE $? "installed nodejs"
 
-id expense
+id expense &>> $LOGS
 
 if [ $? -ne 0 ]
 then
     echo "user expense not add. creating expense user" | tee -a $LOGS
-    useradd expense 
+    useradd expense &>> $LOGS
     VALIDATE $? "USER created"
 else
     echo "user expense already created"
@@ -51,19 +51,33 @@ mkdir -p /app | tee -a $LOGS
 VALIDATE $? "app folder created"
 
 curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+VALIDATE $? "Downloading backend application code"
 
 cd /app
 rm -rf /app/*
 unzip /tmp/backend.zip
 
-cd /app
-
 npm install | tee -a $LOGS
 VALIDATE $? "installed npm"
 
-cp 
+cp /home/ec2-user/practicee/backend-server /etc/systemd/system/backend.service
 
+dnf install mysql -y | tee -a $LOGS
+VALIDATE $? "installed mysql"
 
+mysql -h 172.31.20.153 -uroot -pExpenseApp@1 < /app/schema/backend.sql | tee -a $LOGS
+
+systemctl daemon-reload | tee -a $LOGS
+VALIDATE $? "reloading"
+
+systemctl start backend | tee -a $LOGS
+VALIDATE $? "starting"
+
+systemctl enable backend | tee -a $LOGS
+VALIDATE $? "enabling"
+
+systemctl restart backend | tee -a $LOGS
+VALIDATE $? "restarted backend"
 
 
 

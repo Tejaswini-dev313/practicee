@@ -38,7 +38,7 @@ VALIDATE $? "Enabled mysql"
 systemctl start mysqld | tee -a $LOGS
 VALIDATE $? "started mysql"
 
-mysql -h mysql.tejadevops.online -u root -pExpenseApp@1 -e "show databases;"
+mysql -h 172.31.20.153 -u root -pExpenseApp@1 -e 'show databases;'
 
 if [ $? -ne 0 ]
 then

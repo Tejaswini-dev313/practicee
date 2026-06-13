@@ -1,75 +1,43 @@
 #!/bin/bash
 
-set -e
+LOG_FOLDER="/var/log/expense"
+SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
+TIMESTAMP=$(date)
+LOGS="$LOG_FOLDER/$SCRIPT_NAME-$TUNESTAMP.log"
+mkdir -p $LOG_FOLDER
 
-failure(){
-    echo "failed at $1:$2"
+USERID=$(id -u)
+
+CHECK_ROOT(){
+    if [ $USERID -ne 0 ]
+    then 
+        echo "Please run the script with root priveleges" | tee -a $LOGS
+        exit 1
+    fi
 }
 
-trap 'failure "${LINENO}" "${BASH_COMMAND}"' ERR
+CHECK_ROOT
 
-ls -l
-touchh data1
-ls -la
+VALIDATE(){
+    if [ $1 -ne 0 ]
+    then
+        echo "$2 is failed" | tee -a $LOGS
+    else
+        echo "$2 is success" | tee -a $LOGS
+    fi
+}
 
-# echo "hello world success"
-# echooo "hello world failure"
-# echo "hello world after failure"
+echo "script started executing at: $(date)" | tee -a $LOGS
 
-# LOG_FOLDER="/var/log/shell-logs"
-# SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
-# TIMESTAMP=$(date)
-# LOGS="$LOG_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
-# mkdir -p $LOG_FOLDER
+dnf install mysql-server -y &>> $LOGS
+VALIDATE $? "installing mysql"
 
-# userid=$(id -u)
+systemctl enable mysqld | tee -a $LOGS
+VALIDATE $? "Enabled mysql"
 
-# R="\e[31m"
-# G="\e[32m"
-# B="\e[34m"
-# N="\e[0m"
+systemctl start mysqld | tee -a $LOGS
+VALIDATE $? "started mysql"
 
-# CHECK_ROOT(){
-#     if [ $userid -ne 0 ]
-#     then 
-#         echo "run the script with root priveleges" | tee -a $LOGS 
-#         exit 1
-#     fi
-# }
+mysql_secure_installation --set-root-pass ExpenseApp@1
+VALIDATE $? "setting up root password"
 
-# CHECK_ROOT
-
-# VALIDATE(){
-#     if [ $1 -ne 0 ]
-#     then
-#         echo -e "$2 is $R failed $N" | tee -a $LOGS
-#     else
-#         echo -e "$2 is $G success $N" | tee -a $LOGS
-#     fi
-# }
-
-# USAGE(){
-#     echo "USAGE:: sudo sh script.sh package1 package2 ..."
-#     exit 1
-# }
-
-# if [ $# -eq 0 ]
-# then
-#     USAGE
-# fi
-
-# for Package in $@
-# do
-
-# dnf list installed $Package | tee -a $LOGS
-
-# if [ $? -ne 0 ]
-# then
-#     echo "$Package is not installed and going to install it" &>> $LOGS
-#     dnf install $Package -y  | tee -a $LOGS
-#     VALIDATE $? "$Package is installing" | tee -a $LOGS
-# else
-#     echo "$Package is already installed" | tee -a $LOGS
-# fi
-
-# done

@@ -38,6 +38,14 @@ VALIDATE $? "Enabled mysql"
 systemctl start mysqld | tee -a $LOGS
 VALIDATE $? "started mysql"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1
-VALIDATE $? "setting up root password"
+mysql -h mysql.tejadevops.online -u root -pExpenseApp@1 -e "show databases;"
+
+if [ $? -ne 0 ]
+then
+    echo "mysql password not setup and setting up the password"
+    mysql_secure_installation --set-root-pass ExpenseApp@1
+    VALIDATE $? "setting up root password"
+else
+    echo "mysql password already setup...SKIPPING"
+fi 
 

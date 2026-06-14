@@ -9,7 +9,7 @@ else
     echo "$SOURCE_DIR doesn't exist...please check"
 fi
 
-FILES=$(find $SOURCE_DIR | cut -d "*.log" -f1 -mtime +14)
+FILES=$(find /home/ec2-user -name "*.log" -mtime +14)
 echo "File: $FILES"
 
 while IFS= read -r line

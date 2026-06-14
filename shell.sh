@@ -1,20 +1,19 @@
 #!/bin/bash
 
-SOURCE_DIR=/home/ec2-user/logs
+SOURCE_DIR=
 
 if [ -d $SOURCE_DIR ]
 then
-    echo "$SOURCE_DIR exists"
+    echo "$SOURCE_DIR is exist"
 else
-    echo "$SOURCE_DIR doesn't exist"
-    exit 1
+    echo "$SOURCE_DIR doesn't exist...please check"
 fi
 
-FILES=$(find $SOURCE_DIR -name "*.log" -mtime +14)
-echo "FILES: $FILES"
+FILES=$(find $SOURCE_DIR | cut -d "*.log" -f1 -mtime +14)
+echo "File: $FILES"
 
 while IFS= read -r line
 do
     echo "Deleting line: $line"
     rm -rf $line
-done <<< $FILES
+done

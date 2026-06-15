@@ -1,19 +1,15 @@
 #!/bin/bash
 
-SOURCE_DIR=/home/ec2-user/logs
+SOURCE_DRIVE=$(df -hT | grep xfs)
+THRESHOLD=5
 
-if [ -d $SOURCE_DIR ]
-then
-    echo "$SOURCE_DIR is exist"
-else
-    echo "$SOURCE_DIR doesn't exist...please check"
-fi
-
-FILES=$(find /home/ec2-user -name "*.log" -mtime +14)
-echo "File: $FILES"
-
-while IFS= read -r line
-do
-    echo "Deleting line: $line"
-    rm -rf $line
-done <<< $FILES
+while IFS read -r $line
+do 
+    USAGE=$(echo "$SOURCE_DRIVE | awk -F " " '{print $6F}' | cut -d "%" -f1")
+    PARTITION=$(echo df -hT | grep xfs | awk -F " " '{print $6F}')
+    if [ $USAGE -ge $THRESHOLD]
+    then
+        echo "$PARTITION is more than $THRESHOLD, current value: $USAGE, please check"
+    fi
+done <<< $SOURCE_DRIVE
+    

@@ -1,11 +1,16 @@
-- name: PLAY-01
+- name: install nginx server and run
   hosts: web
   tasks:
-  - name: PLAY-01, TASK-01
-    ansible.builtin.debug:
-      msg: "Hii this is from Tejaswini"
+  - name: install nginx server
+    ansible.builtin.package:
+      msg: "installing nginx"
+      name: nginx
+      state: installed
   
-  - name: PLAY-02, TASK-02
-    ansible.builtin.debug:
-      msg: "Hii im from bhongir"
+  - name: run services
+    ansible.builtin.service:
+      msg: "enabling the services"
+      name: nginx
+      state: started
+      enabled: yes
 

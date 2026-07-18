@@ -1,0 +1,5 @@
+- name: ping the ansible node
+  web: 34.229.194.148
+  tasks:
+  - name: ping
+    ansible.builtin.ping:

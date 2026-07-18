@@ -4,7 +4,6 @@
   tasks:
   - name: install nginx server
     ansible.builtin.package:
-      msg: "installing nginx"
       name: nginx
       state: installed
   

@@ -9,7 +9,6 @@
   
   - name: run services
     ansible.builtin.service:
-      msg: "enabling the services"
       name: nginx
       state: started
       enabled: yes

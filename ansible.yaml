@@ -1,5 +1,11 @@
-- name: ping the server
+- name: PLAY-01
   hosts: web
   tasks:
-  - name: ping server
-    ansible.builtin.ping:
+  - name: PLAY-01, TASK-01
+    ansible.builtin.debug:
+      msg: "Hii this is from Tejaswini"
+  
+  - name: PLAY-02, TASK-02
+    ansible.builtin.debug:
+      msg: "Hii im from bhongir"
+

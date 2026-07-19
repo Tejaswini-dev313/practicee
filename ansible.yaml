@@ -5,7 +5,7 @@
     prompt: "please enter the course name"
   - name: duration
     prompt: "please mention the duration"
-  - name: enddate
+  - name: endtime
     prompt: "please enter the end date of course"
   tasks:
   - name: typing the message using variables

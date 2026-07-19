@@ -9,5 +9,5 @@
     private: false
   tasks:
   - name: entering the message
-    ansible.builtin.dubug:
+    ansible.builtin.debug:
       msg: "im learing the {{course}} and duration is {{duration}}"

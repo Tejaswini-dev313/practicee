@@ -1,7 +1,7 @@
 - name: variables
   hosts: web
   vars_files:
-    - vars-files.yaml
+  - vars-files.yaml
   tasks:
   - name: typing the message using variables
     ansible.builtin.debug:
@@ -9,6 +9,6 @@
   
   - name: typing the message again
     vars_files:
-      - vars-files.yaml
+    - vars-files.yaml
     ansible.builtin.debug:
       msg: "I have started learing {{course}}"

@@ -12,5 +12,5 @@
   - name: typing the message again
     vars:
       course: AWS
-    ansible.buildin.debug:
+    ansible.builtin.debug:
       msg: "I have started learing {{course}}"

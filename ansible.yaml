@@ -9,4 +9,4 @@
   
   - name: typing the message again
     ansible.builtin.debug:
-      msg: "I have started learing {{course}}"
+      msg: "I have started learing {{Course}}"

@@ -1,12 +1,5 @@
 - name: type message with prompt variables
   hosts: web
-  vars_prompt:
-  - name: course
-    prompt: "please enter the course name"
-    private: false
-  - name: duration
-    prompt: "please enter the duration of the course"
-    private: false
   tasks:
   - name: entering the message
     ansible.builtin.debug:

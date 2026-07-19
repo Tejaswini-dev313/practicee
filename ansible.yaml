@@ -1,14 +1,12 @@
-- name: variables
+- name: type message with prompt variables
   hosts: web
   vars_prompt:
   - name: course
     prompt: "please enter the course name"
+    private: false
   - name: duration
-    prompt: "please mention the duration"
-  - name: endtime
-    prompt: "please enter the end date of course"
+    prompt: "please enter the duration of the course"
+    private: false
   tasks:
-  - name: typing the message using variables
-    ansible.builtin.debug:
-      msg: "I have restarted learing {{course}} and duration is {{duration}}. I have to finish this {{course}} by {{endtime}}"
-
+    ansible.builtin.dubug:
+      msg: "im learing the {{course}} and duration is {{duration}}"

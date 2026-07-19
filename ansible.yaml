@@ -8,7 +8,5 @@
       msg: "I have restarted learing {{course}} and duration is {{duration}}. I have to finish this {{course}} by {{endtime}}"
   
   - name: typing the message again
-    vars_files:
-    - vars-files.yaml
     ansible.builtin.debug:
       msg: "I have started learing {{course}}"

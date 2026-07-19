@@ -1,11 +1,11 @@
 - name: variables
   hosts: web
   vars_prompt:
-    name: course
+  - name: course
     msg: "please enter the course name"
-    name: duration
+  - name: duration
     msg: "please mention the duration"
-    name: enddate
+  - name: enddate
     msg: "please enter the end date of course"
   tasks:
   - name: typing the message using variables

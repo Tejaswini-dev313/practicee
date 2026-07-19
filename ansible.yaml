@@ -1,15 +1,11 @@
-- name: install nginx server and run
+- name: variables
   hosts: web
-  become: yes
+  vars:
+    course: "Devops"
+    duration: "120 hours"
+    endtime: "july 30th"
   tasks:
-  - name: install nginx server
-    ansible.builtin.package:
-      name: nginx
-      state: installed
-  
-  - name: run services
-    ansible.builtin.service:
-      name: nginx
-      state: started
-      enabled: yes
-
+  - name: typing the message using variables
+    ansible.builtin.debug:
+      msg: "I have restarted learing {{course}} and duration is {{duration}}. I have to finish this {{course}} by {{endtime}}"
+      

@@ -1,12 +1,14 @@
 - name: variables
   hosts: web
-  vars_files:
-  - vars-files.yaml
+  vars_prompt:
+    name: course
+    msg: "please enter the course name"
+    name: duration
+    msg: "please mention the duration"
+    name: enddate
+    msg: "please enter the end date of course"
   tasks:
   - name: typing the message using variables
     ansible.builtin.debug:
       msg: "I have restarted learing {{course}} and duration is {{duration}}. I have to finish this {{course}} by {{endtime}}"
-  
-  - name: typing the message again
-    ansible.builtin.debug:
-      msg: "I have started learing {{Course}}"
+

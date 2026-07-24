@@ -1,7 +1,5 @@
 - name: type message with prompt variables
   hosts: web
-  vars:
-    inventory.ini
   tasks:
   - name: entering the message
     ansible.builtin.debug:

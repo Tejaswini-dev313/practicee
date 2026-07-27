@@ -2,10 +2,11 @@
   hosts: local
   connection: local
   vars_prompt:
-    - name: "value"
-      prompt: "please enter the value"
-      private: false
+  - name: "value"
+    prompt: "please enter the value"
+    private: false
   tasks:
+  - name: checking the value
     ansible.builtin.debug:
       msg: "Given value is {{value}} less than 50"
       when: value <= 50

@@ -9,4 +9,4 @@
   - name: checking the value
     ansible.builtin.debug:
       msg: "Given value is {{value}} less than 50"
-      when: value | int <= 50
+    when: value | int <= 50

@@ -1,12 +1,18 @@
-- name: conditions
+- name: conditioin
   hosts: local
   connection: local
   vars_prompt:
-  - name: "value"
-    prompt: "please enter the value"
+  - name: value
+    prompt: please enter the value
     private: false
   tasks:
-  - name: checking the value
+  - name: print if given value is less than
     ansible.builtin.debug:
-      msg: "Given value is {{value}} less than 50"
-    when: value | int <= 50
+      msg: "Given value {{value}} is less than 50"
+    when: value | int < 50
+  
+  tasks:
+  - name: print if value is greater than
+    ansible.builtin.debug:
+      msg: "Given value {{value}} is greater than 50"
+    when: value | int > 50

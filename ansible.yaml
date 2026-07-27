@@ -1,19 +1,11 @@
-- name: data types
+- name: conditions
   hosts: local
   connection: local
-  vars:
-    course: devops
-    duration: 120hrs
-    topics:
-    - linux
-    - shell
-    - ansible
-    live: true
-    tools:
-      cm: ansible
-      ci: jenkins
-      cloud: aws
+  vars_prompt:
+    - name: value
+      prompt: please enter the value
+      private: false
   tasks:
-  - name: entering the message
     ansible.builtin.debug:
-      msg: "im learing the {{course}} and duration is {{duration}} and topics are {{topics}} and tools are {{tools}}"
+      msg: "Given value is {{value}} less than 50"
+      when: value <= 50

@@ -1,10 +1,12 @@
 - name: conditioin
   hosts: local
   connection: local
+  
   vars_prompt:
   - name: value
     prompt: please enter the value
     private: false
+
   tasks:
   - name: print if given value is less than
     ansible.builtin.debug:

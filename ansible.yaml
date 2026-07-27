@@ -2,8 +2,8 @@
   hosts: local
   connection: local
   vars_prompt:
-    - name: value
-      prompt: please enter the value
+    - name: "value"
+      prompt: "please enter the value"
       private: false
   tasks:
     ansible.builtin.debug:

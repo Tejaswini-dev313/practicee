@@ -13,7 +13,6 @@
         msg: "Given value {{value}} is less than 50"
       when: value | int < 50
   
-  tasks:
     - name: print if value is greater than
       ansible.builtin.debug:
         msg: "Given value {{value}} is greater than 50"

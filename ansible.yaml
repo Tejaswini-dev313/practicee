@@ -5,9 +5,9 @@
     course: devops
     duration: 120hrs
     topics:
-      - linux
-      - shell
-      - ansible
+    - linux
+    - shell
+    - ansible
     live: true
     tools:
       cm: ansible

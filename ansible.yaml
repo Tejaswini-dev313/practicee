@@ -1,6 +1,19 @@
-- name: type message with prompt variables
-  hosts: web
+- name: data types
+  hosts: local
+  connection: local
+  vars:
+    course: devops
+    duration: 120hrs
+    topics:
+      - linux
+      - shell
+      - ansible
+    live: true
+    tools:
+      cm: ansible
+      ci: jenkins
+      cloud: aws
   tasks:
   - name: entering the message
     ansible.builtin.debug:
-      msg: "im learing the {{course}} and duration is {{duration}}"
+      msg: "im learing the {{course}} and duration is {{duration}} and topics are {{topics}} and tools are {{tools}}"

@@ -15,3 +15,8 @@
     ansible.builtin.debug:
       msg: "Given {{number}} is less than 50"
     when: number | int < 50
+  
+  - name: check the equal value
+    ansible.builtin.debug:
+      msg: "Given number {{number}} is equal to 50"
+    when: number | int = 50

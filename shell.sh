@@ -8,12 +8,12 @@
 
 echo "Please enter USERNAME"
 
-read -s USERNAME
+read USERNAME
 
 echo "Entered username is: $USERNAME"
 
 echo "Please enter the PASSWORD"
 
-read PASSWORD
+read -s PASSWORD
 
 echo "Entered password is: $PASSWORD"

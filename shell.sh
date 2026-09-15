@@ -1,5 +1,8 @@
 #!/bin/bash/
 
-User=$(id)
+Number1=$1
+Number2=$2
 
-echo "user id is $User"
+SUM=($Number1+$Number2)
+
+echo "Total sum of $Number1 and $Number2 is equal to $SUM"

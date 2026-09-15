@@ -7,6 +7,6 @@ SUM=$((Number1-Number2))
 
 echo "Total sum of $Number1 and $Number2 is equal to $SUM"
 
-ls -l
+ls -l &
 
 echo "PID of the last command: $!"

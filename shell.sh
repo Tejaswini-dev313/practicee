@@ -1,3 +1,3 @@
 #!/bin/bash/
 
-User=$(id -u)
+User=$(id)

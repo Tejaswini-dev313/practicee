@@ -15,5 +15,3 @@ echo "Entered username is: $USERNAME"
 echo "Please enter the PASSWORD"
 
 read -s PASSWORD
-
-echo "Entered password is: $PASSWORD"

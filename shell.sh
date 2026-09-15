@@ -1,17 +1,9 @@
-#!/bin/bash
+#!/bin/bash/
 
-# person1=$1
-# person2=$2
+Fruit=("Apple", "Kiwi", "Orange")
 
-# echo "Hii, ${person1}. how are you ?"
-# echo "Hello ${person2}, im fine. How are you?"
+echo "First fruit is ${Fruit[0]}"
+echo "Second fruit is ${Fruit[1]}"
+echo "Third fruit is ${Fruit[2]}"
 
-echo "Please enter USERNAME"
-
-read USERNAME
-
-echo "Entered username is: $USERNAME"
-
-echo "Please enter the PASSWORD"
-
-read -s PASSWORD
+echo "Total number of fruits are ${@}"

@@ -1,10 +1,17 @@
 #!/bin/bash/
 
-Number=$1
+USER=$(id -u)
 
-if [ $Number -gt 20 ]
+if [ $USER -ne 0 ]
 then
-    echo "Given $Number is greater than 20"
+    echo "Run the script with root priveleges"
+fi
+
+dnf install nginx -y
+
+if [ $? -ne 0 ]
+then 
+    echo "installation has been failed..check the command"
 else
-    echo "Given $Number is less than 20"
+    echo "installing successfully"
 fi

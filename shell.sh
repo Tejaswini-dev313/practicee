@@ -3,6 +3,6 @@
 Number1=$1
 Number2=$2
 
-SUM=($Number1+$Number2)
+SUM=$((Number1+Number2))
 
 echo "Total sum of $Number1 and $Number2 is equal to $SUM"

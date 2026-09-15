@@ -14,5 +14,5 @@ if [ $? -ne 0 ]
 then 
     echo "installation has been failed..check the command"
 else
-    echo "installing successfully"
+    echo "installed successfully"
 fi

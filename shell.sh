@@ -14,7 +14,7 @@ fi
 check_root
 
 validate(){
-    
+
 if [ $1 -ne 0 ]
 then
     echo "$2 is failed"
@@ -28,7 +28,7 @@ dnf list installed mysql
 if [ $? -ne 0 ]
 then
     echo "mysql is not installed. install mysql"
-    dnf install mysql -y
+    dnf install mysqlsl -y
     validate $? installation 
 else
     echo "mysql is already installed"

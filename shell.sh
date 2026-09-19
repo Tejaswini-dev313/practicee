@@ -1,46 +1,44 @@
 #!/bin/bash/
 
-# userid=$(id -u)
+userid=$(id -u)
 
-# R="\e[31m"
-# G="\e[32m"
-# Y="\e[33m"
-# N="\e[0m"
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 
-# check_root(){
+check_root(){
 
-# if [ $userid -ne 0 ]
-# then 
-#     echo "run the script with root previliges"
-#     exit 1
-# fi
-# }
+if [ $userid -ne 0 ]
+then 
+    echo "run the script with root previliges"
+    exit 1
+fi
+}
 
-# check_root
+check_root
 
-# validate(){
+validate(){
 
-#     if [ $1 -ne 0 ]
-#     then
-#         echo -e "$2 is $R failed $N"
-#         exit 1
-#     else
-#         echo -e "$2 is $G success $N"
-#     fi
-# }
+    if [ $1 -ne 0 ]
+    then
+        echo -e "$2 is $R failed $N"
+        exit 1
+    else
+        echo -e "$2 is $G success $N"
+    fi
+}
 
-# dnf list installed mysql
-
-# if [ $? -ne 0 ]
-# then
-#     echo "mysql is not installed. install mysql"
-#     dnf install mysql -y
-#     validate $? "installing mysql" 
-# else
-#     echo -e "$Y mysql is already installed $N"
-# fi
-
-for i in {a..z}
+for package in {$@}
 do
-    echo "$i"
-done
+
+dnf list installed $package
+
+if [ $? -ne 0 ]
+then
+    echo "$package is not installed. installing $package"
+    dnf install $package -y
+    validate $? "installing $package" 
+else
+    echo -e "$Y $package is already installed $N"
+fi

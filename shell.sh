@@ -13,6 +13,8 @@ fi
 
 check_root
 
+validate(){
+    
 if [ $1 -ne 0 ]
 then
     echo "$2 is failed"
@@ -20,8 +22,6 @@ then
 else
     echo "$2 is success"
 fi
-
-validate(){
 
 dnf list installed mysql
 
@@ -33,4 +33,7 @@ then
 else
     echo "mysql is already installed"
 fi
+
 } 
+
+validate $? installation 

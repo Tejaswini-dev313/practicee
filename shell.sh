@@ -50,7 +50,5 @@ validate $? "removing $package"
 if [ $? -ne 0 ]
 then 
     echo "$package not deleted. check the issue"
-else
-    echo "$package already deleted. nothing to do"
 fi
 done

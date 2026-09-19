@@ -30,7 +30,7 @@ if [ $? -ne 0 ]
 then
     echo "mysql is not installed. install mysql"
     dnf install mysqlsl -y
-    validate $? " mysql is installing" 
+    validate $? "installing mysql" 
 else
     echo "mysql is already installed"
 fi

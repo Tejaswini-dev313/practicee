@@ -40,7 +40,7 @@
 #     echo -e "$Y mysql is already installed $N"
 # fi
 
-for i in {0..20}
+for i in {a..20}
 do
     echo "$i"
 done

@@ -15,13 +15,14 @@ check_root
 
 validate(){
 
-if [ $1 -ne 0 ]
-then
-    echo "$2 is failed"
-    exit 1
-else
-    echo "$2 is success"
-fi
+    if [ $1 -ne 0 ]
+    then
+        echo "$2 is failed"
+        exit 1
+    else
+        echo "$2 is success"
+    fi
+}
 
 dnf list installed mysql
 
@@ -29,11 +30,7 @@ if [ $? -ne 0 ]
 then
     echo "mysql is not installed. install mysql"
     dnf install mysqlsl -y
-    validate $? installation 
+    validate $? " mysql is installing" 
 else
     echo "mysql is already installed"
 fi
-
-} 
-
-validate $? installation 

@@ -1,18 +1,19 @@
 #!/bin/bash/
 
-USER=$(id -u)
+userid=$(id -u)
 
-if [ $USER -ne 0 ]
-then
-    echo "Run the script with root priveleges"
+if [ $userid -ne 0 ]
+then 
+    echo "run the script with root previliges"
     exit 1
 fi
 
-dnf install nginx -y
+dnf list installed mysql
 
 if [ $? -ne 0 ]
-then 
-    echo "installation has been failed..check the command"
+then
+    echo "mysql is not installed. install mysql"
+    dnf install mysql -y
 else
-    echo "installed successfully"
+    echo "mysql is already installed"
 fi

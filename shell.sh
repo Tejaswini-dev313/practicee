@@ -3,7 +3,7 @@
 path="/var/log/shell_script"
 timestamp=$(date)
 script_name=$(echo $0 | cut -d "." -f1)
-Log_file="$path/$timestamp-$script_name.log"
+Log_file="$path/$script_name-$timestamp.log"
 
 mkdir -p $Log_file
 

@@ -8,14 +8,15 @@ then
     exit 1
 fi
 
-package=$1
+for package in $@
+do
+    dnf list installed $package
 
-dnf list installed $package
-
-if [ $? -ne 0 ]
-then
-    echo "package is not installed. install $package"
-    dnf install $package -y
-else
-    echo "$package package is already installed. nothing to do"
-fi
+    if [ $? -ne 0 ]
+    then
+        echo "package is not installed. install $package"
+        dnf install $package -y
+    else
+        echo "$package package is already installed. nothing to do"
+    fi
+done

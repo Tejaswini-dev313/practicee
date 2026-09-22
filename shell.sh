@@ -8,12 +8,14 @@ then
     exit 1
 fi
 
-dnf list installed mysql
+package=$1
+
+dnf list installed $package
 
 if [ $? -ne 0 ]
 then
-    echo "package is not installed. install mysql"
-    dnf install mysql -y
+    echo "package is not installed. install $package"
+    dnf install $package -y
 else
-    echo "mysql package is already installed. nothing to do"
+    echo "$package package is already installed. nothing to do"
 fi

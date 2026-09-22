@@ -5,7 +5,7 @@ timestamp=$(date)
 script_name=$(echo $0 | cut -d "." -f1)
 Log_file="$path/$script_name-$timestamp.log"
 
-mkdir -p $Log_file
+mkdir -p $path
 
 userid=$(id -u)
 

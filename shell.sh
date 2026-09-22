@@ -49,13 +49,4 @@ then
 else
     echo -e "$Y $package is already installed $N" | tee -a $Log_file
 fi
-
-dnf remove $package -y | tee -a $Log_file
-
-validate $? "removing $package"
-
-if [ $? -ne 0 ]
-then 
-    echo "$package not deleted. check the issue" | tee -a $Log_file
-fi
 done

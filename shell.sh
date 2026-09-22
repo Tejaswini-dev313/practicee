@@ -7,55 +7,55 @@ Log_file="$path/$timestamp-$script_name.log"
 
 mkdir -p $Log_file
 
-# userid=$(id -u)
+userid=$(id -u)
 
-# R="\e[31m"
-# G="\e[32m"
-# Y="\e[33m"
-# N="\e[0m"
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 
-# check_root(){
+check_root(){
 
-# if [ $userid -ne 0 ]
-# then 
-#     echo "run the script with root previliges"
-#     exit 1
-# fi
-# }
+if [ $userid -ne 0 ]
+then 
+    echo "run the script with root previliges" | tee -a $Log_file
+    exit 1
+fi
+}
 
-# check_root
+check_root
 
-# validate(){
+validate(){
 
-#     if [ $1 -ne 0 ]
-#     then
-#         echo -e "$2 is $R failed $N"
-#         exit 1
-#     else
-#         echo -e "$2 is $G success $N"
-#     fi
-# }
+    if [ $1 -ne 0 ]
+    then
+        echo -e "$2 is $R failed $N" | tee -a $Log_file
+        exit 1
+    else
+        echo -e "$2 is $G success $N" | tee -a $Log_file
+    fi
+}
 
-# for package in "$@"
-# do
+for package in "$@"
+do
 
-# dnf list installed $package
+dnf list installed $package
 
-# if [ $? -ne 0 ]
-# then
-#     echo "$package is not installed. installing $package"
-#     dnf install $package -y
-#     validate $? "installing $package" 
-# else
-#     echo -e "$Y $package is already installed $N"
-# fi
+if [ $? -ne 0 ]
+then
+    echo "$package is not installed. installing $package"
+    dnf install $package -y
+    validate $? "installing $package" 
+else
+    echo -e "$Y $package is already installed $N" | tee -a $Log_file
+fi
 
-# dnf remove $package -y
+dnf remove $package -y
 
-# validate $? "removing $package"
+validate $? "removing $package"
 
-# if [ $? -ne 0 ]
-# then 
-#     echo "$package not deleted. check the issue"
-# fi
-# done
+if [ $? -ne 0 ]
+then 
+    echo "$package not deleted. check the issue" | tee -a $Log_file
+fi
+done

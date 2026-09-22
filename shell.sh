@@ -1,20 +1,21 @@
 #!/bin/bash
 
-R="\e[31m"
-G="\e[32m"
-N="\e[0m"
+source_dir="/var/log/shell_script"
 
-failure(){
-    echo "failed at $1:$2"
-    
-}
+if [ -d $source_dir ]
+then 
+	echo "directory has existed"
+else
+	echo "Directory not found"
+fi
 
-trap 'failure "${LINENO}" "$BASH_COMMAND"' ERR
+FILE=$(find $source_dir -name ".log")
+echo "file:$FILE"
 
-echo "Hello world 1"
-echo00 "hello000 world 2"
-echo "Hello world 3"
-
-ls
-
-lsss
+while IFS= read -r line
+do 
+	
+	echo "deleting the file $line"
+	rm -rf $line
+	
+done <<< $FILE

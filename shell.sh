@@ -31,4 +31,8 @@ do
         echo "$package package is already installed. nothing to do"
         VALIDATE $? "installation"
     fi
+
+    systemctl start nginx
+    VALIDATE $? "started"
+
 done

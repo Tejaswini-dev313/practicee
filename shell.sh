@@ -9,8 +9,12 @@ failure(){
     
 }
 
-trap 'failure ${LINENO} "$BASH_COMMAND"' ERR
+trap 'failure "${LINENO}" "$BASH_COMMAND"' ERR
 
 echo "Hello world 1"
-echo "hello000 world 2"
+echo00 "hello000 world 2"
 echo "Hello world 3"
+
+ls
+
+lsss

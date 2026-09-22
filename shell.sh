@@ -39,18 +39,18 @@ validate(){
 for package in "$@"
 do
 
-dnf list installed $package
+dnf list installed $package | tee -a $Log_file
 
 if [ $? -ne 0 ]
 then
     echo "$package is not installed. installing $package"
-    dnf install $package -y
+    dnf install $package -y | tee -a $Log_file
     validate $? "installing $package" 
 else
     echo -e "$Y $package is already installed $N" | tee -a $Log_file
 fi
 
-dnf remove $package -y
+dnf remove $package -y | tee -a $Log_file
 
 validate $? "removing $package"
 

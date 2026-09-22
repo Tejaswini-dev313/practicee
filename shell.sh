@@ -1,7 +1,7 @@
 #!/bin/bash/
 
 path="/var/log/shell_script"
-timestamp=$(date)
+timestamp=$(date +%Y-%m-%d-%H-%M-%S)
 script_name=$(echo $0 | cut -d "." -f1)
 Log_file="$path/$script_name-$timestamp.log"
 

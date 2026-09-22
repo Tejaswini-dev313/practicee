@@ -1,22 +1,11 @@
 #!/bin/bash
 
-source_dir=/var/log/shell_script
+user=$(id -u)
 
-if [ -d $source_dir ]
-then 
-	echo "directory has existed"
-else
-	echo "Directory not found"
+if [ $user -ne 0 ]
+then
+    echo "given user is not root user"
     exit 1
+else
+    echo "given user is root user"
 fi
-
-FILE=$(find $source_dir -name "*.log")
-echo "file:$FILE"
-
-while IFS= read -r line
-do 
-	
-	echo "deleting the file $line"
-	rm -rf $line
-	
-done <<< $FILE

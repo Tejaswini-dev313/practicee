@@ -9,7 +9,7 @@ do
     partiation=$(echo $line | awk -F " " '{print $NF}')
     if [ $usage -ge $disk_threshold ]
     then
-        echo "$disk_usage is reached the threshold value. please check"
+        echo "$partiation is reached the threshold value $disk_threshold and current usage is $usage. please check"
     fi
 done <<< $disk_usage
 

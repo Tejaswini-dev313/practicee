@@ -7,6 +7,7 @@ then
 	echo "directory has existed"
 else
 	echo "Directory not found"
+    exit 1
 fi
 
 FILE=$(find $source_dir -name ".log")

@@ -1,5 +1,7 @@
 #!/bin/bash/
 
+set -o pipefail
+
 path="/var/log/shell_script"
 timestamp=$(date +%Y-%m-%d-%H-%M-%S)
 script_name=$(echo $0 | cut -d "." -f1)

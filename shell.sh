@@ -4,10 +4,8 @@ user=$(id -u)
 
 if [ $user -ne 0 ]
 then
-    echo "given user is not root user"
+    echo "run the script with root privileges"
     exit 1
-else
-    echo "given user is root user"
 fi
 
 dnf list intalled mysql

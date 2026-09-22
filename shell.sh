@@ -7,8 +7,8 @@ while IFS= read -r line
 do 
     usage=$(echo $line | awk -F " " '{print $6F}' | cut -d "%" -f1)
     partiation=$(echo $line | awk -F " " '{print $NF}')
-    if [ $disk_threshold -ge 1 ]
+    if [ $disk_usage -ge $disk_threshold ]
     then
-        echo "$disk_threshold is reached the threshold value. please check"
+        echo "$disk_usage is reached the threshold value. please check"
     fi
 done <<< disk_usage

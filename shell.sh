@@ -10,7 +10,7 @@ else
     exit 1
 fi
 
-FILE=$(find $source_dir -name ".log")
+FILE=$(find $source_dir -name "*.log")
 echo "file:$FILE"
 
 while IFS= read -r line

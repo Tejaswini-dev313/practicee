@@ -5,7 +5,8 @@
   - name: check user weather exits or not
     ansible.builtin.command: id expense
     register: USER
-    ignore_error: true
+    ignore_errors: true
+
   - name: check user info
     ansible.builtin.debug:
       msg: "user info {{USER}}"

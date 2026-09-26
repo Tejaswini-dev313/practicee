@@ -2,13 +2,13 @@
   hosts: web
   become: yes
   tasks:
-  - name: install nginx on servers
-    ansible.builtin.package:
-      name: nginx
-      state: installed
+  # - name: install nginx on servers
+  #   ansible.builtin.package:
+  #     name: nginx
+  #     state: removed
   
   - name: stop and disable services of nginx
     ansible.builtin.service:
       name: nginx
-      state: started
-      enabled: yes
+      state: stopped
+      enabled: no

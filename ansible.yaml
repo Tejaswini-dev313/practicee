@@ -1,10 +1,13 @@
 - name: run play
   hosts: web
+  person1: teja
+  person2: ram
   tasks:
-  - name: run play-1
+  - name: conservation
     ansible.builtin.debug:
-      msg: run play-1
+      msg: hii {{person1}}, how are you?
+      msg: hello {{person2}}, im fine {{person1}}. how are you ?
 
-  - name: run play-2
-    ansible.builtin.debug:
-      msg: run the play-2
+  # - name: run play-2
+  #   ansible.builtin.debug:
+  #     msg: run the play-2

@@ -1,7 +1,19 @@
-- name: gathering the facts
-  hosts: local
-  connection: local
+- name: install nginx
+  hosts: web
+  become: yes
   tasks:
-  - name: gathering the facts of the node1.
+  - name: gathering facts
     ansible.builtin.debug:
-      msg: "gathering the facts of {{ansible_facts}}"  
+      msg: gathering the facts {{ansible_facts}}
+  
+  - name: install nginx if OS is Redhat
+    ansible.builtin.dnf:
+    - name: nginx
+      state: installed
+    when: ansible_os_family == "RedHat"
+  
+  - name: install nginx if OS is Debian
+    ansible.builtin.apt:
+    - name: nginx
+      state: installed
+    when: ansible_os_family == "Debian"

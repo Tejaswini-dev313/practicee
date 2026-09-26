@@ -5,11 +5,10 @@
   - name: install nginx on servers
     ansible.builtin.package:
       name: nginx
-      state: installed
+      state: removed
   
   - name: enable the services
     ansible.builtin.service:
       name: nginx
-      state: started
-      enabled: yes
-      
+      state: stopped
+      enabled: no

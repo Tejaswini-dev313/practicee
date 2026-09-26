@@ -6,8 +6,9 @@
   tasks:
   - name: conservation
     ansible.builtin.debug:
-      msg: hii {{person1}}, how are you?
-      msg: hello {{person2}}, im fine {{person1}}. how are you ?
+      msg: 
+        - hii {{person1}}, how are you?
+        - hello {{person2}}, im fine {{person1}}. how are you ?
 
   # - name: run play-2
   #   ansible.builtin.debug:

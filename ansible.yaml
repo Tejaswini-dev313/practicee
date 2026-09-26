@@ -9,9 +9,9 @@
         - hii {{person1}}, how are you?
         - hello {{person2}}, im fine {{person1}}. how are you ?
 
+  vars_files:
+  - vars.yaml
   - name: conservation1
-    vars_files:
-    - vars.yaml
     ansible.builtin.debug:
       msg: 
         - what are you doing {{person3}}

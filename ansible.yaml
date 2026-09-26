@@ -10,9 +10,9 @@
     - ansible
     live: true
     tools:
-    cm: ansible
-    script: shell
-    cicd: jenkins
+      cm: ansible
+      script: shell
+      cicd: jenkins
   tasks:
   - name: enter data types
     ansible.builtin.debug:

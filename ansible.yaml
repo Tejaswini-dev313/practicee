@@ -1,14 +1,6 @@
-- name: install nginx
+- name: run play
   hosts: web
-  become: yes
   tasks:
-  - name: install nginx on servers
-    ansible.builtin.package:
-      name: nginx
-      state: removed
-  
-  - name: stop and disable services of nginx
-    ansible.builtin.service:
-      name: nginx
-      state: stopped
-      enabled: no
+  - name: run play-1
+    ansible.builtin.debug:
+      msg: run play-1

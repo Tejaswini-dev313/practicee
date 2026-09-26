@@ -1,5 +1,5 @@
 - name: ping the node public IP
-  hosts: 44.211.86.242
+  hosts: web
   tasks:
   - name: ping the node IP
     ansible.builtin.ping:

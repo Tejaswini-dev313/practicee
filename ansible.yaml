@@ -1,7 +1,8 @@
 - name: run play
   hosts: web
-  person1: teja
-  person2: ram
+  vars:
+    person1: teja
+    person2: ram
   tasks:
   - name: conservation
     ansible.builtin.debug:

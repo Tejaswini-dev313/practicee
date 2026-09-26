@@ -1,14 +1,18 @@
-- name: run play
-  hosts: web
+- name: data types
+  hosts: local
+  connection: local
+  course: Devops
+  duratioin: 120
+  topics:
+  - linux
+  - shell
+  - ansible
+  live: true
+  tools:
+  cm: ansible
+  script: shell
+  cicd: jenkins
   tasks:
-  - name: conservation
+  - name: enter data types
     ansible.builtin.debug:
-      msg: 
-        - hii {{person1}}, how are you?
-        - hello {{person2}}, im fine {{person1}}. how are you ?
-
-  - name: conservation1
-    ansible.builtin.debug:
-      msg: 
-        - what are you doing {{person3}}
-        - Nothing, im learning devops {{person4}}
+      msg: Hii, im learning {{course}} and duration is {{duration}}, topics are {{topics}} with tools: {{tools}}

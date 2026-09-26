@@ -5,10 +5,10 @@
   - name: install nginx on servers
     ansible.builtin.package:
       name: nginx
-      state: removed
+      state: installed
   
-  - name: stop and disable services of nginx
-    ansible.builtin.service:
-      name: nginx
-      state: stopped
-      enabled: no
+  # - name: stop and disable services of nginx
+  #   ansible.builtin.service:
+  #     name: nginx
+  #     state: stopped
+  #     enabled: no

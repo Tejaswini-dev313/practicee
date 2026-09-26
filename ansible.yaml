@@ -7,8 +7,8 @@
       name: nginx
       state: installed
   
-  # - name: stop and disable services of nginx
-  #   ansible.builtin.service:
-  #     name: nginx
-  #     state: stopped
-  #     enabled: no
+  - name: stop and disable services of nginx
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes

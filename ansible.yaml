@@ -7,7 +7,7 @@
       name: nginx
       state: removed
   
-  - name: enable the services
+  - name: stop and disable services of nginx
     ansible.builtin.service:
       name: nginx
       state: stopped

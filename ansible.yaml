@@ -1,19 +1,35 @@
-- name: data types
-  hosts: local
-  connection: local
-  vars:
-    course: Devops
-    duration: 120
-    topics:
-      - linux
-      - shell
-      - ansible
-    live: true
-    tools:
-      cm: ansible
-      script: shell
-      cicd: jenkins
+- name: condition
+  hosts: web
+  vars_prompt:
+  - name: number
+    prompt: enter the value
+    private: no
   tasks:
-  - name: enter data types
+  - name: check the number
     ansible.builtin.debug:
-      msg: Hii, im learning {{ course }} and duration is {{ duration }}, topics are {{ topics }} with tools {{ tools }}
+      msg: given {{number}} is less than 20
+    when: number | int < 20
+
+  - name: check the number weather greater than or not
+    ansible.builtin.dubug:
+      msg: given {{number}} is greater than 20
+    when: number | int >= 20
+
+# - name: To check number is less than or not
+#   hosts: local
+#   connection: local
+#   vars_prompt:
+#   - name: number
+#     prompt: Please enter the number
+#     private: false
+#   tasks:
+#   - name: Print if number less than 20
+#     ansible.builtin.debug:
+#       msg: "Given number {{ number }} is less than 20"
+#     when: number | int < 20
+
+#   - name: Print if number greate than or equal to 20
+#     ansible.builtin.debug:
+#       msg: "Given number {{ number }} is greate than or equal to 20"
+#     when: number | int >= 20
+  

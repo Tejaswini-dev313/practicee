@@ -13,6 +13,6 @@
     vars_files:
     - vars.yaml
     ansible.builtin.debug:
-        msg: 
-          - what are you doing {{person3}}
-          - Nothing, im learning devops {{person4}}
+      msg: 
+        - what are you doing {{person3}}
+        - Nothing, im learning devops {{person4}}

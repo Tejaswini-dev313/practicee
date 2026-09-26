@@ -13,9 +13,9 @@
   - name: run play-2
     hosts: web
     vars:
-      person1: nimmi
-      person2: chintu
+      person3: nimmi
+      person4: chintu
     ansible.builtin.debug:
       msg: 
-        - what are you doing {{person1}}
-        - Nothing, im learning devops {{person2}}
+        - what are you doing {{person3}}
+        - Nothing, im learning devops {{person4}}

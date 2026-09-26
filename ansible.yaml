@@ -1,7 +1,12 @@
 - name: run play
   hosts: web
-  vars_files:
-    - vars.yaml
+  vars_prompt:
+  - name: person1
+    prompt: please enter the person1
+    private: no
+  - name: person2
+    prompt: please enter the person2
+    private: no
   tasks:
   - name: conservation
     ansible.builtin.debug:

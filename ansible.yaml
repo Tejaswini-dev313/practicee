@@ -1,17 +1,18 @@
 - name: data types
   hosts: local
   connection: local
-  course: Devops
-  duratioin: 120
-  topics:
-  - linux
-  - shell
-  - ansible
-  live: true
-  tools:
-  cm: ansible
-  script: shell
-  cicd: jenkins
+  vars:
+    course: Devops
+    duratioin: 120
+    topics:
+    - linux
+    - shell
+    - ansible
+    live: true
+    tools:
+    cm: ansible
+    script: shell
+    cicd: jenkins
   tasks:
   - name: enter data types
     ansible.builtin.debug:

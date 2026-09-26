@@ -10,6 +10,12 @@
         - hii {{person1}}, how are you?
         - hello {{person2}}, im fine {{person1}}. how are you ?
 
-  # - name: run play-2
-  #   ansible.builtin.debug:
-  #     msg: run the play-2
+  - name: run play-2
+    hosts: web
+    vars:
+      person1: nimmi
+      person2: chintu
+    ansible.builtin.debug:
+      msg: 
+        - what are you doing {{person1}}
+        - Nothing, im learning devops {{person2}}

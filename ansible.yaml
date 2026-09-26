@@ -1,6 +1,8 @@
-- name: ping the node public IP
+- name: install nginx
   hosts: web
+  become: yes
   tasks:
-  - name: ping the node IP
-    ansible.builtin.ping:
-     
+  - name: install nginx on servers
+    ansible.builtin.dnf:
+    - name: nginx
+    - state: installed

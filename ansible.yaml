@@ -11,7 +11,7 @@
     when: number | int < 20
 
   - name: check the number weather greater than or not
-    ansible.builtin.dubug:
+    ansible.builtin.debug:
       msg: given {{number}} is greater than 20
     when: number | int >= 20
 

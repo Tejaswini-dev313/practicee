@@ -1,7 +1,7 @@
 - name: run play
   hosts: web
   vars_files:
-  - vars.yaml
+    - vars.yaml
   tasks:
   - name: conservation
     ansible.builtin.debug:
@@ -9,8 +9,6 @@
         - hii {{person1}}, how are you?
         - hello {{person2}}, im fine {{person1}}. how are you ?
 
-  vars_files:
-  - vars.yaml
   - name: conservation1
     ansible.builtin.debug:
       msg: 

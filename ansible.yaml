@@ -3,7 +3,7 @@
   connection: local
   vars:
     course: Devops
-    duratioin: 120
+    duration: 120
     topics:
       - linux
       - shell

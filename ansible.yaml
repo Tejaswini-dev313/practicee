@@ -4,3 +4,7 @@
   - name: run play-1
     ansible.builtin.debug:
       msg: run play-1
+
+  - name: run play-2
+    ansible.builtin.debug:
+      msg: run the play-2

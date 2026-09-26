@@ -7,6 +7,12 @@
   - name: person2
     prompt: please enter the person2
     private: no
+  - name: person3
+    prompt: please enter the person3
+    private: no
+  - name: person4
+    prompt: please enter the person4
+    private: no
   tasks:
   - name: conservation
     ansible.builtin.debug:
@@ -14,8 +20,8 @@
         - hii {{person1}}, how are you?
         - hello {{person2}}, im fine {{person1}}. how are you ?
 
-  # - name: conservation1
-  #   ansible.builtin.debug:
-  #     msg: 
-  #       - what are you doing {{person3}}
-  #       - Nothing, im learning devops {{person4}}
+  - name: conservation1
+    ansible.builtin.debug:
+      msg: 
+        - what are you doing {{person3}}
+        - Nothing, im learning devops {{person4}}

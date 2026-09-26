@@ -1,18 +1,5 @@
 - name: run play
   hosts: web
-  # vars_prompt:
-  # - name: person1
-  #   prompt: please enter the person1
-  #   private: no
-  # - name: person2
-  #   prompt: please enter the person2
-  #   private: no
-  # - name: person3
-  #   prompt: please enter the person3
-  #   private: no
-  # - name: person4
-  #   prompt: please enter the person4
-  #   private: no
   tasks:
   - name: conservation
     ansible.builtin.debug:

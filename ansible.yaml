@@ -2,5 +2,5 @@
   hosts: web
   tasks:
   - name: gathering the facts of the node1.
-    ansible.buildin.debug:
+    ansible.builtin.debug:
       msg: "gathering the facts of {{ansible_facts}}"  

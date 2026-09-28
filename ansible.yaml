@@ -8,6 +8,6 @@
       state: "{{ item.state }}"
     
     loop:
-    - { name: 'mysql', state: 'started' }
+    - { name: 'mysql', state: 'installed' }
     - { name: 'nginx', state: 'absent' }
 

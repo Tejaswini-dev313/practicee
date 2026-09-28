@@ -2,8 +2,8 @@
   hosts: local
   connection: local
   tasks:
-  - name: loops
-    ansible.buildin.debug:
+  - name: running the message
+    ansible.builtin.debug:
       msg: Hello {{item}}, how are you {{item}}
     loops:
     - teja

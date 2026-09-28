@@ -1,11 +1,13 @@
-- name: create loops
-  hosts: local
-  connection: local
+- name: install servers using loops
+  hosts: web
+  become: yes
   tasks:
-  - name: running the message
-    ansible.builtin.debug:
-      msg: Hello {{item}}, how are you {{item}}
+  - name: install servers
+    ansible.builtin.package:
+      name: "{{ item.name }}"
+      state: "{{ item.started }}"
+    
     loop:
-    - teja
-    - nimmi
-    - chintu
+    - "{{ name: mysql, state: started }}"
+    - "{{ name: nginx, state: absent }}"
+

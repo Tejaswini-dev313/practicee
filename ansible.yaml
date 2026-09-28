@@ -5,7 +5,7 @@
   - name: running the message
     ansible.builtin.debug:
       msg: Hello {{item}}, how are you {{item}}
-    loops:
+    loop:
     - teja
     - nimmi
     - chintu
